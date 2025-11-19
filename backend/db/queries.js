@@ -13,13 +13,16 @@ async function getPicture(pictureId) {
         return await prisma.image.findUnique({
             where: {
                 id: pictureId
+            },
+            include: {
+                characters: true
             }
         });
     } catch(error) {
         throw error;
     }
 }
-
+ 
 module.exports = {
     getAllPictures,
     getPicture,
