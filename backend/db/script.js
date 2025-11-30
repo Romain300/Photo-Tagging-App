@@ -5,65 +5,57 @@ async function main() {
     console.log("Seeding...")
     
     try {
-        const setUpImages = await prisma.image.createMany({
-            data: [
-                { title: "Beach Scene", url: "https://www.paperflite.com/sites/default/files/inline-images/Where%27s%20Waldo_0.jpg" },
-                { title: "City Crowd", url: "https://i.imgur.com/sHuAyTS.jpeg" },
-                { title: "Park Puzzle", url: "https://wallpapers.com/images/high/where-s-waldo-amusement-park-yxfz34fnvbhuau7x.webp" },
-            ]
+        const image = await prisma.image.create({
+            data: {
+                title: "City Center",
+                url: "https://i.imgur.com/LnzE1JH.jpeg",
+            }
         });
 
         const testCharacters = await prisma.character.createMany({
             data: [
                 {
-                name: "Test 1",
-                imageId: 1, 
-                xMin: 0.1,
-                xMax: 0.2,
-                yMin: 0.3,
-                yMax: 0.4,
+                name: "Waldo",
+                imageId: image.id, 
+                xMin: 0.39,
+                xMax: 0.47,
+                yMin: 0.69,
+                yMax: 0.82,
                 },
                 {
-                name: "Test 2",
-                imageId: 1,
-                xMin: 0.5,
-                xMax: 0.6,
-                yMin: 0.2,
-                yMax: 0.3,
+                name: "Woof",
+                imageId: image.id,
+                xMin: 0.55,
+                xMax: 0.59,
+                yMin: 0.28,
+                yMax: 0.34,
                 },
                 {
-                name: "Test 3",
-                imageId: 2, // if you have another image
-                xMin: 0.0,
-                xMax: 0.1,
-                yMin: 0.0,
-                yMax: 0.1,
+                name: "Wenda",
+                imageId: image.id, 
+                xMin: 0.42,
+                xMax: 0.45,
+                yMin: 0.57,
+                yMax: 0.63,
                 },
                 {
-                name: "Test 4",
-                imageId: 2,
-                xMin: 0.3,
-                xMax: 0.5,
-                yMin: 0.3,
-                yMax: 0.5,
+                name: "Whitebeard",
+                imageId: image.id,
+                xMin: 0.63,
+                xMax: 0.68,
+                yMin: 0.74,
+                yMax: 0.81,
                 },
                 {
-                name: "Test 5",
-                imageId: 3,
-                xMin: 0.7,
-                xMax: 0.8,
-                yMin: 0.6,
-                yMax: 0.7,
+                name: "Odlaw",
+                imageId: image.id,
+                xMin: 0.57,
+                xMax: 0.61,
+                yMin: 0.92,
+                yMax: 0.99,
                 },
 
-                {
-                name: "Test 6",
-                imageId: 3,
-                xMin: 0.7,
-                xMax: 0.8,
-                yMin: 0.6,
-                yMax: 0.7,
-                },
+               
             ],
         }); 
     } catch(error) {
@@ -76,3 +68,5 @@ async function main() {
 
 main();
 
+// https://imgur.com/gallery/wheres-waldo-all-answers-f9CwD
+// https://imgur.com/gallery/sorry-ruining-everything-you-had-planned-today-oGbAS
