@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
     })
 });
 
-app.use('/pictures', routes.pictures)
+app.use('/players', routes.players);
+app.use('/pictures', routes.pictures);
 
 app.listen(PORT, () => {
      console.log(`Listening on PORT ${PORT}`);

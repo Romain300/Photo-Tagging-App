@@ -29,4 +29,13 @@ model Image {
   title     String
   url       String
   characters Character[]  
+  players Player[]
+}
+
+model Player {
+  id      Int      @id   @default(autoincrement())
+  name    String
+  time    String 
+  image   Image    @relation(fields: [imageId], references: [id])
+  imageId Int
 }
