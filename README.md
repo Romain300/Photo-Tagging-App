@@ -1,111 +1,159 @@
-# PixTag - Full Project
+– Full Project 
 
-PixTag is a web-based interactive game where players find hidden characters in images and compete for the best time. The project is divided into two main parts: **Backend** and **Frontend**.
+PixTag is a web-based interactive game inspired by *Where’s Waldo*, where players must find hidden characters in detailed images and compete for the best completion time.
 
-- **Backend**: Handles data storage, API endpoints, and game logic using Node.js, Express, and Prisma with a PostgreSQL database.
-- **Frontend**: Built with React, it provides the user interface, game interaction, and leaderboard display.
+The project is split into two main parts: a **backend** that manages data, game logic, and AI hints, and a **frontend** that delivers the interactive gameplay experience.
 
 ---
 
-## Folder Structure
+## Demo
+https://pixtag.netlify.app/
+
+---
+
+## ✨ Key Features
+
+- Interactive image-based character search game  
+- Time-based scoring system with leaderboards  
+- **AI-powered hint system** to assist players without spoiling solutions  
+- Clean separation between frontend and backend  
+- Responsive UI with a reusable global footer  
+
+---
+
+## 📂 Folder Structure
 
 ```
 PixTag/
-├── backend/       # Node.js backend with Express and Prisma
-├── frontend/      # React frontend
-└── README.md      # This general README file
+├── backend/       # Node.js backend with Express, Prisma, and AI integration
+├── frontend/      # React frontend with game UI and footer component
+└── README.md      # General project documentation
 ```
 
 ---
 
-## Backend
+## 🧠 Backend
 
-The backend folder contains the API and database logic.
+The backend handles all core logic, data persistence, and AI integration.
 
 ### Features
+
 - REST API endpoints for:
   - Listing pictures
   - Retrieving picture details with characters
-  - Adding players
-  - Getting leaderboard data
-- Uses Prisma ORM for database management (PostgreSQL)
-- Includes seed scripts to populate initial images and characters
+  - Adding players and recording times
+  - Fetching leaderboard data
+  - Generating **AI-based hints**
+- Prisma ORM for database management (PostgreSQL)
+- Secure handling of environment variables
+- Seed scripts to populate initial images and characters
+
+### Technologies
+
+- Node.js
+- Express
+- Prisma ORM
+- PostgreSQL
+- OpenAI API
+- dotenv, CORS, express-validator
 
 ### Installation
+
 ```bash
 cd backend
 npm install
 ```
 
 ### Environment Variables
-Create a `.env` file in the `backend` folder with:
+
+Create a `.env` file inside the `backend` folder:
+
 ```
 DATABASE_URL=your_postgresql_database_url
 PORT=3000
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 ### Running the Backend
+
 ```bash
-npm run dev  # Runs the server in development mode
+npm run dev
 ```
-The backend API will be available at `http://localhost:3000`.
+
+The API will be available at:  
+`http://localhost:3000`
 
 ---
 
-## Frontend
+## 🎨 Frontend
 
-The frontend folder contains the React app.
+The frontend provides the user interface and gameplay experience.
 
 ### Features
-- Main page to select pictures
-- Interactive game board to find characters
-- Click markers and dynamic choice menu
+
+- Picture selection screen
+- Interactive game board to locate characters
+- Click markers with contextual selection menu
 - Timer tracking minutes and seconds
-- Leaderboard for fastest players
-- Responsive design for mobile devices
+- Leaderboard display for fastest players
+- **AI hint requests** integrated into gameplay
+- **Reusable footer** displayed across all pages
+- Fully responsive design for mobile and desktop
+
+### Technologies
+
+- React
+- React Router
+- CSS Modules
+- Vite
 
 ### Installation
+
 ```bash
 cd frontend
 npm install
 ```
 
 ### Running the Frontend
+
 ```bash
 npm run dev
 ```
-The frontend will run at `http://localhost:5173` (or the port provided by Vite).
+
+The frontend will run at:  
+`http://localhost:5173` (or the port provided by Vite)
 
 ---
 
-## How to Play
+## 🎮 How to Play
 
 1. Start both backend and frontend servers.
 2. Open the frontend in your browser.
 3. Select a picture from the main menu.
 4. Click on the image to guess character locations.
-5. Submit the correct character and repeat until all are found.
-6. Enter your name to save your time to the leaderboard.
-7. Replay or choose another image from the menu.
+5. Request an AI hint if needed.
+6. Find all characters as fast as possible.
+7. Enter your name to save your time on the leaderboard.
+8. Replay or select another image.
 
 ---
 
-## Notes
+## 📝 Notes
 
-- The game uses **percentage-based coordinates** for click markers, ensuring correct placement even when resizing the screen.
-- Ensure the backend is running before playing the game, as the frontend relies on API requests for pictures and leaderboard data.
-
----
-
-## Technologies Used
-
-- **Frontend**: React, React Router, CSS Modules, Vite
-- **Backend**: Node.js, Express, Prisma, PostgreSQL
-- **Other Tools**: dotenv, CORS, express-validator
+- The game uses **percentage-based coordinates**, ensuring accurate click detection even when resizing the screen.
+- The backend must be running for the frontend to function correctly, as all data and AI hints are served via API requests.
 
 ---
 
-## Author
+## 🛠️ Technologies Used
 
-Romain Cappellotti
+- **Frontend**: React, React Router, CSS Modules, Vite  
+- **Backend**: Node.js, Express, Prisma, PostgreSQL  
+- **AI**: OpenAI API  
+- **Other Tools**: dotenv, CORS, express-validator  
 
+---
+
+## 👤 Author
+
+**Romain Cappellotti**
